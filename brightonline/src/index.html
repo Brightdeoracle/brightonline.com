@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BRIGHTonline - Digital Marketing Specialist</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-950 text-white font-sans">
+ <!-- Navigation Bar -->
+<nav class="navbar" id="navbar">
+  <ul class="nav-links">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#case-studies">Case Studies</a></li>
+    <li><a href="#blog">Blog</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<style>
+.navbar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 1000;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: flex-end;
+  transition: top 0.3s ease, opacity 0.6s ease;
+  opacity: 0;
+  transform: translateY(-30px);
+  animation: slideDownNav 1s ease forwards;
+  animation-delay: 4s;
+}
+
+@keyframes slideDownNav {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: #ff9900;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    justify-content: center;
+    padding: 1rem;
+  }
+  .nav-links {
+    flex-direction: column;
+    background: rgba(0, 0, 0, 0.9);
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 100%;
+    display: none;
+    text-align: center;
+  }
+  .nav-links.active {
+    display: flex;
+  }
+}
+</style>
+
+<script>
+  // Sticky Nav Animation
+  let lastScrollTop = 0;
+  const navbar = document.getElementById("navbar");
+
+  window.addEventListener("scroll", function () {
+    let scrollTop = window.scrollY;
+    if (scrollTop > lastScrollTop) {
+      navbar.style.top = "-80px";
+    } else {
+      navbar.style.top = "0";
+    }
+    lastScrollTop = scrollTop;
+  });
+</script>
+
+<!-- Keep rest of your content below here -->
+>
+ <!-- Preloader -->
+<div id="preloader">
+  <div class="preloader-logo">BRIGHTonline</div>
+</div>
+
+<!-- Language Switcher -->
+<div class="language-switcher">
+  <select id="languageSelect">
+    <option value="en">English</option>
+    <option value="fr">Français</option>
+    <option value="ha">Hausa</option>
+  </select>
+</div>
+
+<!-- Hero Section with Video Background -->
+<section class="hero-section" id="home">
+  <video autoplay muted loop playsinline class="hero-video">
+    <source src="https://cdn.pixabay.com/video/2023/01/18/145909-794903137_large.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+  <div class="hero-overlay animate-fade-in">
+    <img src="https://i.postimg.cc/MTxX5ySf/Whats-App-Image-2025-06-08-at-4-56-20-PM.jpg" alt="Logo" class="hero-logo" />
+    <h1 data-key="brand">BRIGHTonline</h1>
+    <p data-key="tagline">
+      Smart Digital Strategies for Bright Results: <br />
+      Hi, I'm Anzaku Albright, a digital marketing specialist helping businesses grow online through SEO, SMM & SEM.
+    </p>
+    <a href="#contact" class="cta-button" data-key="cta">Get Started</a>
+  </div>
+</section>
+
+<style>
+/* Preloader Styles */
+#preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  background: #000;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  flex-direction: column;
+}
+
+.preloader-logo {
+  font-size: 2.5rem;
+  font-weight: bold;
+  opacity: 0;
+  animation: fadeInLogo 1s ease-in forwards, fadeOutLogo 1s ease-out forwards 2.5s;
+}
+
+@keyframes fadeInLogo {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeOutLogo {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.hero-section {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  text-align: center;
+  padding: 1rem;
+}
+
+.hero-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -2;
+}
+
+.hero-overlay {
+  background: rgba(0, 0, 0, 0.6);
+  padding: 30px;
+  border-radius: 15px;
+  max-width: 700px;
+  z-index: 2;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease;
+}
+
+.hero-overlay.animate-fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hero-logo {
+  width: 70px;
+  margin-bottom: 20px;
+  border-radius: 50%;
+  animation: fadeInLogo 1.2s ease forwards;
+  animation-delay: 3s;
+}
+
+.cta-button {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 25px;
+  background-color: #ff9900;
+  color: #000;
+  font-weight: bold;
+  border-radius: 25px;
+  text-decoration: none;
+}
+
+.cta-button:hover {
+  background-color: #e08900;
+}
+
+.language-switcher {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 999;
+}
+
+.language-switcher select {
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: none;
+  background: #fff;
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .hero-overlay {
+    padding: 20px;
+    max-width: 90%;
+  }
+  .hero-logo {
+    width: 60px;
+  }
+  .cta-button {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+}
+</style>
+
+<script>
+  const translations = {
+    en: {
+      brand: "BRIGHTonline",
+      tagline:
+        "Smart Digital Strategies for Bright Results: \nHi, I'm Anzaku Albright, a digital marketing specialist helping businesses grow online through SEO, SMM & SEM.",
+      cta: "Get Started",
+    },
+    fr: {
+      brand: "BRIGHTenligne",
+      tagline:
+        "Des stratégies numériques intelligentes pour des résultats brillants :\nBonjour, je suis Anzaku Albright, spécialiste du marketing numérique. J'aide les entreprises à se développer en ligne grâce au SEO, SMM et SEM.",
+      cta: "Commencer",
+    },
+    ha: {
+      brand: "BRIGHTkan layi",
+      tagline:
+        "Dabarun dijital masu wayo don sakamako mai haske:\nSannu, ni ne Anzaku Albright, masani kan tallan dijital. Ina taimaka wa kamfanoni su bunkasa ta yanar gizo ta SEO, SMM da SEM.",
+      cta: "Fara yanzu",
+    },
+  };
+
+  const langSelect = document.getElementById("languageSelect");
+
+  langSelect.addEventListener("change", function () {
+    const selectedLang = this.value;
+    const elements = document.querySelectorAll("[data-key]");
+
+    elements.forEach((el) => {
+      const key = el.getAttribute("data-key");
+      el.textContent = translations[selectedLang][key];
+    });
+
+    document.querySelector(".hero-overlay").classList.remove("animate-fade-in");
+    setTimeout(() => {
+      document.querySelector(".hero-overlay").classList.add("animate-fade-in");
+    }, 10);
+  });
+
+  window.addEventListener("load", () => {
+    setTimeout(() => {
+      document.getElementById("preloader").style.display = "none";
+      document.querySelector(".hero-overlay").classList.add("animate-fade-in");
+    }, 3800);
+  });
+</script>
+
+  <!-- About Me Section -->
+<section id="about" class="about-section" data-aos="fade-up">
+  <div class="about-container">
+    <div class="about-text">
+      <h2>About Me</h2>
+      <p>
+        Hi, I’m <strong>Anzaku Albright</strong>, the creative force behind <strong>BRIGHTonline</strong>. As a passionate digital marketing specialist based in Lagos, Nigeria, I help businesses grow their online presence through smart, results-driven strategies.
+      </p>
+      <p>
+        With deep expertise in SEO, SEM, and SMM, I develop customized campaigns that convert clicks into loyal customers. Whether you're launching a new brand or scaling up, I bring energy, creativity, and data-backed insights to make your digital journey a success.
+      </p>
+      <div class="about-buttons">
+        <a href="#contact" class="about-btn">Let’s Work Together</a>
+        <a href="https://example.com/resume.pdf" target="_blank" class="about-btn alt-btn">Download Resume</a>
+      </div>
+    </div>
+    <div class="about-image" data-aos="zoom-in">
+      <img src="https://i.postimg.cc/MTxX5ySf/Whats-App-Image-2025-06-08-at-4-56-20-PM.jpg" alt="Anzaku Albright">
+    </div>
+  </div>
+</section>
+<!-- AOS Styles -->
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+<!-- AOS Script -->
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 1000,
+    once: true
+  });
+</script>
+
+ <section id="services" class="services-section">
+  <h2>Our Services</h2>
+  <div class="services-container">
+    <div class="service-card">
+      <img src="https://img.icons8.com/ios-filled/50/000000/search--v1.png" alt="SEO Icon" />
+      <h3>SEO (Search Engine Optimization)</h3>
+      <p>
+        Boost your website’s visibility on search engines with tailored keyword strategies and quality content optimization.
+      </p>
+      <button class="toggle-details">Learn More</button>
+      <p class="full-details" style="display:none;">
+        We analyze your market and competition to build a strong SEO foundation, improve your rankings, and increase organic traffic sustainably.
+      </p>
+    </div>
+    <div class="service-card">
+      <img src="https://img.icons8.com/ios-filled/50/000000/advertising.png" alt="SEM Icon" />
+      <h3>SEM (Search Engine Marketing)</h3>
+      <p>
+        Drive targeted traffic quickly with paid ads on Google and other platforms that convert clicks into customers.
+      </p>
+      <button class="toggle-details">Learn More</button>
+      <p class="full-details" style="display:none;">
+        We manage your campaigns carefully to maximize ROI, optimize bidding, and ensure your ads reach the right audience at the right time.
+      </p>
+    </div>
+    <div class="service-card">
+      <img src="https://img.icons8.com/ios-filled/50/000000/social-media.png" alt="SMM Icon" />
+      <h3>SMM (Social Media Marketing)</h3>
+      <p>
+        Build your brand presence and engagement on social platforms with creative content and community management.
+      </p>
+      <button class="toggle-details">Learn More</button>
+      <p class="full-details" style="display:none;">
+        From content planning to paid social ads, we help you grow followers, increase interaction, and create loyal customers.
+      </p>
+    </div>
+  </div>
+</section>
+
+<style>
+.services-section {
+  padding: 3rem 1rem;
+  background: #121212;
+  color: #fff;
+  text-align: center;
+}
+
+.services-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.service-card {
+  background: #222;
+  border-radius: 10px;
+  padding: 1.5rem;
+  width: 300px;
+  box-shadow: 0 0 10px rgba(255, 153, 0, 0.3);
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.service-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.service-card img {
+  width: 50px;
+  margin-bottom: 1rem;
+}
+
+.service-card h3 {
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+.service-card p {
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.service-card button {
+  background: #ff9900;
+  border: none;
+  color: #121212;
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.service-card button:hover {
+  background: #e68a00;
+}
+
+.full-details {
+  margin-top: 1rem;
+  font-size: 0.85rem;
+  color: #ddd;
+  text-align: left;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .services-container {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+</style>
+
+<script>
+const toggleButtons = document.querySelectorAll('.toggle-details');
+
+toggleButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    const fullDetails = button.nextElementSibling;
+    if (fullDetails.style.display === 'block') {
+      fullDetails.style.display = 'none';
+      button.textContent = 'Learn More';
+    } else {
+      fullDetails.style.display = 'block';
+      button.textContent = 'Show Less';
+    }
+  });
+});
+
+// Animate service cards on scroll
+const serviceCards = document.querySelectorAll('.service-card');
+
+function checkServicesInView() {
+  const triggerBottom = window.innerHeight * 0.85;
+
+  serviceCards.forEach((card, index) => {
+    const cardTop = card.getBoundingClientRect().top;
+
+    if (cardTop < triggerBottom) {
+      setTimeout(() => {
+        card.classList.add('visible');
+      }, index * 150); // stagger delay 150ms between cards
+    } else {
+      card.classList.remove('visible');
+    }
+  });
+}
+
+window.addEventListener('scroll', checkServicesInView);
+window.addEventListener('load', checkServicesInView);
+</script>
+
+<section id="case-studies" class="case-studies-section">
+  <h2>Case Studies</h2>
+  <p>See how we tackle real challenges with smart strategies and deliver measurable results.</p>
+
+  <div class="case-studies-container">
+    <div class="case-study-card">
+      <img src="https://i.postimg.cc/cL60K1Pm/OIP.webp" alt="Project 1 Visual" />
+      <h3>Project Alpha</h3>
+      <p><strong>Problem:</strong> The client’s website traffic was declining and conversions were low.</p>
+      <button class="toggle-details">Learn More</button>
+      <div class="full-details" style="display:none;">
+        <p><strong>Strategy:</strong> We implemented a comprehensive SEO audit, optimized content for keywords, and launched targeted SEM campaigns.</p>
+        <p><strong>Result:</strong> Within 3 months, traffic increased by 150%, and conversion rate improved by 40%, significantly boosting revenue.</p>
+      </div>
+    </div>
+
+    <div class="case-study-card">
+      <img src="https://i.postimg.cc/cL60K1Pm/OIP.webp" alt="Project 2 Visual" />
+      <h3>Project Beta</h3>
+      <p><strong>Problem:</strong> The brand struggled with social media engagement and lacked online presence.</p>
+      <button class="toggle-details">Learn More</button>
+      <div class="full-details" style="display:none;">
+        <p><strong>Strategy:</strong> We created a tailored social media marketing plan, produced engaging content, and managed paid ads.</p>
+        <p><strong>Result:</strong> Followers grew by 300%, engagement tripled, and brand awareness soared in key markets.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+.case-studies-section {
+  padding: 3rem 1rem;
+  background: #181818;
+  color: #fff;
+  text-align: center;
+}
+
+.case-studies-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.case-study-card {
+  background: #222;
+  border-radius: 10px;
+  padding: 1.5rem;
+  width: 320px;
+  box-shadow: 0 0 12px rgba(255, 153, 0, 0.3);
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  text-align: left;
+}
+
+.case-study-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.case-study-card img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.case-study-card h3 {
+  margin-bottom: 0.75rem;
+  font-weight: 700;
+  color: #ff9900;
+}
+
+.case-study-card p {
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.case-study-card button {
+  background: #ff9900;
+  border: none;
+  color: #181818;
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 1rem;
+}
+
+.case-study-card button:hover {
+  background: #e68a00;
+}
+
+.full-details {
+  color: #ddd;
+  font-size: 0.85rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .case-studies-container {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+</style>
+
+<script>
+const caseToggleButtons = document.querySelectorAll('.case-study-card .toggle-details');
+
+caseToggleButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    const fullDetails = button.nextElementSibling;
+    if (fullDetails.style.display === 'block') {
+      fullDetails.style.display = 'none';
+      button.textContent = 'Learn More';
+    } else {
+      fullDetails.style.display = 'block';
+      button.textContent = 'Show Less';
+    }
+  });
+});
+
+// Animate case study cards on scroll
+const caseCards = document.querySelectorAll('.case-study-card');
+
+function checkCaseStudiesInView() {
+  const triggerBottom = window.innerHeight * 0.85;
+
+  caseCards.forEach((card, index) => {
+    const cardTop = card.getBoundingClientRect().top;
+
+    if (cardTop < triggerBottom) {
+      setTimeout(() => {
+        card.classList.add('visible');
+      }, index * 150);
+    } else {
+      card.classList.remove('visible');
+    }
+  });
+}
+
+window.addEventListener('scroll', checkCaseStudiesInView);
+window.addEventListener('load', checkCaseStudiesInView);
+</script>
+
+<section id="testimonials" class="testimonials-section">
+  <h2>What Clients Say</h2>
+  <div class="testimonials-container">
+    <div class="testimonial-card">
+      <img src="https://i.postimg.cc/ZYGKQDvk/R-1.png" alt="Jane Doe" />
+      <p class="quote">
+        “BRIGHTonline elevated our traffic by 300% — impressive!”
+      </p>
+      <p class="client-name">Jane Doe</p>
+      <p class="client-title">Founder at LocalBiz</p>
+    </div>
+    <div class="testimonial-card">
+      <img src="https://i.postimg.cc/pLgZ5vpG/OIP.jpg" alt="John Smith" />
+      <p class="quote">
+        “Professional, responsive, and delivered results beyond expectations.”
+      </p>
+      <p class="client-name">John Smith</p>
+      <p class="client-title">Marketing Manager at MarketPro</p>
+    </div>
+    <div class="testimonial-card">
+      <img src="https://i.postimg.cc/59qRcX6x/good-job.webp" alt="Sarah Lee" />
+      <p class="quote">
+        “BRIGHTonline’s strategies transformed our social media presence completely.”
+      </p>
+      <p class="client-name">Sarah Lee</p>
+      <p class="client-title">CEO at SocialBuzz</p>
+    </div>
+  </div>
+</section>
+
+<style>
+.testimonials-section {
+  padding: 3rem 1rem;
+  background: #1a1a1a;
+  color: #fff;
+  text-align: center;
+}
+
+.testimonials-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.testimonial-card {
+  background: #222;
+  border-radius: 10px;
+  padding: 1.5rem;
+  width: 280px;
+  box-shadow: 0 0 10px rgba(255, 153, 0, 0.3);
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.testimonial-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.testimonial-card img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1rem;
+  border: 2px solid #ff9900;
+}
+
+.quote {
+  font-style: italic;
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+  color: #ffcc66;
+}
+
+.client-name {
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-bottom: 0.2rem;
+}
+
+.client-title {
+  font-size: 0.9rem;
+  color: #aaa;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .testimonials-container {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+</style>
+
+<script>
+// Animate testimonial cards on scroll
+const testimonialCards = document.querySelectorAll('.testimonial-card');
+
+function checkTestimonialsInView() {
+  const triggerBottom = window.innerHeight * 0.85;
+
+  testimonialCards.forEach((card, index) => {
+    const cardTop = card.getBoundingClientRect().top;
+
+    if (cardTop < triggerBottom) {
+      setTimeout(() => {
+        card.classList.add('visible');
+      }, index * 150);
+    } else {
+      card.classList.remove('visible');
+    }
+  });
+}
+
+window.addEventListener('scroll', checkTestimonialsInView);
+window.addEventListener('load', checkTestimonialsInView);
+</script>
+<!-- MAIN CONTENT WRAPPER -->
+<main class="flex-1">
+  <!-- Your existing sections like hero, services, etc. go here -->
+</main>
+<section id="blog-digital-marketing" class="relative bg-cover bg-center py-20 text-white" style="background-image: url('https://i.postimg.cc/658JtZTx/Digital-Marketing.png');">
+  <div class="absolute inset-0 bg-black bg-opacity-70"></div>
+
+  <div class="relative z-10 max-w-4xl mx-auto px-6 text-center">
+    <h2 class="text-4xl font-bold mb-6 animate-fade-in">Understanding Digital Marketing</h2>
+
+    <p class="text-lg mb-6 leading-relaxed animate-fade-in-slow">
+      Digital marketing is the strategic use of digital platforms to reach your audience and grow your business.
+    </p>
+
+    <div id="moreContent" class="overflow-hidden transition-all duration-700 max-h-0 text-gray-300 text-base">
+      <p class="mb-4">
+        It includes Search Engine Optimization (SEO), Pay-Per-Click Ads (PPC), Social Media Marketing (SMM), Email Campaigns, and Content Marketing. 
+      </p>
+      <p class="mb-4">
+        These tools help you generate leads, convert customers, and retain them through highly targeted and trackable efforts. Today, it's essential for visibility and growth in every industry.
+      </p>
+      <p>
+        Success in digital marketing requires data analysis, creativity, and consistency. Brands that master it gain a competitive edge and build long-term customer relationships.
+      </p>
+    </div>
+
+    <button onclick="toggleBlog()" id="toggleBtn"
+      class="mt-6 px-6 py-2 bg-blue-600 hover:bg-blue-700 rounded-full font-semibold transition">
+      Show More
+    </button>
+  </div>
+</section>
+
+<script>
+  function toggleBlog() {
+    const content = document.getElementById("moreContent");
+    const btn = document.getElementById("toggleBtn");
+
+    if (content.classList.contains("max-h-0")) {
+      content.classList.remove("max-h-0");
+      content.classList.add("max-h-[1000px]");
+      btn.textContent = "Show Less";
+    } else {
+      content.classList.add("max-h-0");
+      content.classList.remove("max-h-[1000px]");
+      btn.textContent = "Show More";
+    }
+  }
+</script>
+
+<style>
+  @keyframes fade-in {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .animate-fade-in {
+    animation: fade-in 1s ease-out forwards;
+  }
+  .animate-fade-in-slow {
+    animation: fade-in 1.5s ease-out forwards;
+  }
+</style>
+<section id="blog-keywords" class="relative bg-cover bg-center py-20 text-white" style="background-image: url('https://i.postimg.cc/pLgZ5vpG/OIP.jpg');">
+  <div class="absolute inset-0 bg-black bg-opacity-70"></div>
+
+  <div class="relative z-10 max-w-4xl mx-auto px-6 text-center">
+    <h2 class="text-4xl font-bold mb-6 animate-fade-in">Top Ranking Digital Marketing Keywords</h2>
+
+    <p class="text-lg mb-6 leading-relaxed animate-fade-in-slow">
+      Mastering high-ranking keywords is the core of any successful digital marketing strategy.
+    </p>
+
+    <div id="keywordContent" class="overflow-hidden transition-all duration-700 max-h-0 text-gray-300 text-base">
+      <p class="mb-4">
+        These keywords help websites rank better on search engines, driving more traffic and conversions. Understanding what users are searching for puts your brand right in front of them.
+      </p>
+      <p class="mb-4">
+        🔹 <strong>Examples:</strong> <br>
+        - digital marketing strategy<br>
+        - SEO tools for beginners<br>
+        - content marketing trends<br>
+        - Google Ads tips<br>
+        - email marketing automation<br>
+        - best social media scheduler
+      </p>
+      <p>
+        Integrating these into your content improves visibility and positions your business for digital success.
+      </p>
+    </div>
+
+    <button onclick="toggleKeywords()" id="keywordToggle"
+      class="mt-6 px-6 py-2 bg-blue-600 hover:bg-blue-700 rounded-full font-semibold transition">
+      Show More
+    </button>
+  </div>
+</section>
+
+<script>
+  function toggleKeywords() {
+    const content = document.getElementById("keywordContent");
+    const btn = document.getElementById("keywordToggle");
+
+    if (content.classList.contains("max-h-0")) {
+      content.classList.remove("max-h-0");
+      content.classList.add("max-h-[1000px]");
+      btn.textContent = "Show Less";
+    } else {
+      content.classList.add("max-h-0");
+      content.classList.remove("max-h-[1000px]");
+      btn.textContent = "Show More";
+    }
+  }
+</script>
+
+<style>
+  @keyframes fade-in {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .animate-fade-in {
+    animation: fade-in 1s ease-out forwards;
+  }
+  .animate-fade-in-slow {
+    animation: fade-in 1.5s ease-out forwards;
+  }
+</style>
+
+
+<!-- FOOTER SECTION -->
+<footer class="bg-gray-950 text-white pt-16 pb-10 px-6">
+  <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-12" data-aos="fade-up">
+    <!-- Contact Form -->
+    <div>
+      <h2 class="text-2xl font-bold mb-6">Contact Me</h2>
+      <form action="https://formspree.io/f/mqkrzdqv" method="POST" class="space-y-4">
+        <input type="text" name="name" placeholder="Your Name" required
+          class="w-full p-3 rounded-md bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-blue-500">
+        <input type="email" name="email" placeholder="Your Email" required
+          class="w-full p-3 rounded-md bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-blue-500">
+        <textarea name="message" placeholder="Your Message" required
+          class="w-full p-3 rounded-md bg-gray-800 text-white h-32 resize-none focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+        <button type="submit"
+          class="bg-blue-500 hover:bg-blue-600 text-white font-semibold px-6 py-2 rounded-md transition-all duration-300 ease-in-out">
+          Send Message
+        </button>
+      </form>
+    </div>
+
+    <!-- Quick Navigation -->
+    <div>
+      <h2 class="text-2xl font-bold mb-6">Quick Links</h2>
+      <ul class="space-y-3 text-gray-300 text-sm">
+        <li><a href="#home" class="hover:text-blue-400">Home</a></li>
+        <li><a href="#services" class="hover:text-blue-400">Services</a></li>
+        <li><a href="#case-studies" class="hover:text-blue-400">Case Studies</a></li>
+        <li><a href="#blog" class="hover:text-blue-400">Blog</a></li>
+        <li><a href="#contact" class="hover:text-blue-400">Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- Contact & Social Links -->
+    <div>
+      <h2 class="text-2xl font-bold mb-6">Stay Connected</h2>
+      <ul class="space-y-3 text-gray-300 text-sm">
+        <li>Email: <a href="mailto:albrightanzaku@gmail.com" class="text-blue-400 hover:underline">albrightanzaku@gmail.com</a></li>
+        <li>Phone: <a href="tel:08140765554" class="text-blue-400 hover:underline">08140765554</a></li>
+        <li>
+          Twitter/X:
+          <a href="https://twitter.com/AnzakuAlbr23716" target="_blank"
+             class="text-blue-400 hover:underline flex items-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-5 h-5" viewBox="0 0 24 24">
+              <path d="M21.543 6.498a9.077 9.077 0 01-2.625.719 4.616 4.616 0 002.03-2.548 9.152 9.152 0 01-2.908 1.112 4.604 4.604 0 00-7.835 4.195 13.078 13.078 0 01-9.508-4.815 4.605 4.605 0 001.423 6.143 4.567 4.567 0 01-2.084-.576v.058a4.603 4.603 0 003.692 4.51 4.574 4.574 0 01-2.075.078 4.608 4.608 0 004.302 3.2 9.229 9.229 0 01-5.713 1.971c-.371 0-.737-.022-1.096-.065a13.045 13.045 0 007.063 2.071c8.474 0 13.107-7.02 13.107-13.106 0-.2-.004-.399-.013-.598A9.356 9.356 0 0024 4.59a9.107 9.107 0 01-2.457.673z"/>
+            </svg>
+            @AnzakuAlbr23716
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Google Maps Embed -->
+  <div class="mt-10" data-aos="fade-up">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1983.6875480190668!2d3.379205!3d6.524379!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b8c9a06393bfb%3A0x20db95a5dd6c8037!2sLagos%2C%20Nigeria!5e0!3m2!1sen!2sng!4v1717860000000"
+      width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade" class="rounded-md shadow-lg border border-gray-700">
+    </iframe>
+  </div>
+
+  <!-- Divider -->
+  <div class="border-t border-gray-800 mt-12 pt-6 text-center text-gray-500 text-sm">
+    © 2025 BRIGHTonline. All rights reserved.
+  </div>
+
+  <!-- Scroll to Top Button -->
+  <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})"
+    class="fixed right-6 bottom-6 bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-full shadow-lg transition">
+    ↑ Top
+  </button>
+</footer>
+
+<!-- AOS Animation -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>AOS.init();</script>
